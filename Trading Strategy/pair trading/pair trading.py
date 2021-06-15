@@ -61,7 +61,7 @@ def TradeSim(priceX, priceY, position):
     size = 1000
     shareY = size * position
     shareX = [(-beta) * shareY[0] * priceY[0] / priceX[0]]
-    print(shareY)
+
     cash = [2000]
     for i in range(1, n):
         shareX.append(shareX[i - 1])
@@ -95,7 +95,7 @@ if __name__ =='__main__':
     price_BOC = hist_data['601988']['2014-01-01':'2015-01-01']
     price_pufa = hist_data['600000']['2014-01-01':'2015-01-01']
 
-    pari_price = pd.concat([price_pufa, price_BOC] , 1) ; print(pari_price.shape)
+    pari_price = pd.concat([price_pufa, price_BOC] , 1) ;
     pari_price.plot()
     plt.show()
     distance = SSD(pari_price)
@@ -208,6 +208,7 @@ if __name__ =='__main__':
     account1.tail()
     account1.loc[:,'Asset']
     account1.iloc[:, [1, 3, 4]].plot(style=['--', '-', ':'])
-    plt.show()
     plt.title('配对交易账户')
-    account1.iloc[:, [0, 3, 4]]
+    plt.xlabel('time')
+    plt.ylabel('value')
+    plt.show()
